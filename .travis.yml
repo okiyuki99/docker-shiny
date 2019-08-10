@@ -1,0 +1,15 @@
+services:
+ - docker
+
+env:
+  global:
+    IMAGE='okiyuki99/docker-shiny'
+   
+script:
+ - docker build -t ${IMAGE}:${TRAVIS_BUILD_NUMBER} .
+
+after_success:
+ - docker login -u="${DOCKERHUB_USERNAME}" -p="${DOCKERHUB_PASSWORD}"
+ - docker push ${IMAGE}:${TRAVIS_BUILD_NUMBER}
+ - docker tag ${IMAGE}:${TRAVIS_BUILD_NUMBER} ${IMAGE}:latest
+ - docker push ${IMAGE}:latest
