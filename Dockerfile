@@ -37,6 +37,7 @@ RUN install2.r --error --deps TRUE \
   glue \
   ggplot2 \
   httr \
+  kableExtra \
   logger \
   plotly \
   purrr \
