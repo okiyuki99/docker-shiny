@@ -44,7 +44,7 @@ RUN install2.r --error --deps TRUE \
   testthat
 
 # shiny tools
-RUN install2.r --error --deps TRUE shinyAce shinythemes shinydashboard shinyalert tippy shinytest
+RUN install2.r --error --deps TRUE shinyAce shinycssloaders shinythemes shinydashboard shinyalert tippy shinytest
 
 # Install PhantomJS for shinytest
 RUN R -e 'shinytest::installDependencies()'
