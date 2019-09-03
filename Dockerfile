@@ -3,7 +3,7 @@ FROM rocker/shiny:latest
 LABEL maintainer "bigtree3101@gmail.com"
 
 RUN rm -rf /var/lib/apt/lists/* && apt-get update && \
-  apt-get install -y --no-install-recommends software-properties-common supervisor wget openssh-server sudo \
+  apt-get install -y --no-install-recommends software-properties-common supervisor wget curl openssh-server sudo \
     git-core fonts-vlgothic nkf jq \
     rsync gawk netcat curl libglu1-mesa-dev libv8-dev \
     mysql-client && \
@@ -41,6 +41,7 @@ RUN install2.r --error --deps TRUE \
   logger \
   plotly \
   purrr \
+  rsconnect \
   testthat
 
 # shiny tools
