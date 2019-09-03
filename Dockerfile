@@ -12,7 +12,7 @@ RUN rm -rf /var/lib/apt/lists/* && apt-get update && \
 
 # for build
 RUN apt-get update && apt-get install -y --no-install-recommends \
-  libudunits2-dev libgdal-dev libssl-dev zlib1g-dev && \
+  libudunits2-dev libgdal-dev libssl-dev zlib1g-dev libmagick++-dev && \
   apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # rJava
@@ -45,7 +45,7 @@ RUN install2.r --error --deps TRUE \
   testthat
 
 # shiny tools
-RUN install2.r --error --deps TRUE shinyAce shinythemes shinydashboard shinyalert tippy shinytest
+RUN install2.r --error --deps TRUE shinyAce shinycssloaders shinythemes shinydashboard shinyalert tippy shinytest
 
 # Install PhantomJS for shinytest
 RUN R -e 'shinytest::installDependencies()'
